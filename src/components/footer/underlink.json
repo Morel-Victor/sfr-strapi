@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_footer_underlinks",
+  "info": {
+    "displayName": "underlink"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}

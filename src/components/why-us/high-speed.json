@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_why_us_high_speeds",
+  "info": {
+    "displayName": "HighSpeed"
+  },
+  "options": {},
+  "attributes": {
+    "card": {
+      "type": "component",
+      "repeatable": true,
+      "component": "why-us.card-hight-speed"
+    }
+  }
+}

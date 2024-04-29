@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_why_us_tests",
+  "info": {
+    "displayName": "test"
+  },
+  "options": {},
+  "attributes": {
+    "dd": {
+      "type": "string"
+    }
+  }
+}

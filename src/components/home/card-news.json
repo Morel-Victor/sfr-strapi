@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_home_card_news",
+  "info": {
+    "displayName": "CardNews",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "img": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "badge": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}

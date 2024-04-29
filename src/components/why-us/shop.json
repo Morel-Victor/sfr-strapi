@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_why_us_shops",
+  "info": {
+    "displayName": "Shop"
+  },
+  "options": {},
+  "attributes": {
+    "shop": {
+      "type": "component",
+      "repeatable": true,
+      "component": "why-us.card-shop"
+    }
+  }
+}

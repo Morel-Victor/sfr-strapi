@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_nav_bar_badges",
+  "info": {
+    "displayName": "Badges",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}

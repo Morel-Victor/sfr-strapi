@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_why_us_card_hight_speeds",
+  "info": {
+    "displayName": "CardHighSpeed",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "img": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "text": {
+      "type": "text"
+    },
+    "urlText": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "reverse": {
+      "type": "boolean"
+    }
+  }
+}

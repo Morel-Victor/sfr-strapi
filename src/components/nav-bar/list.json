@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_nav_bar_lists",
+  "info": {
+    "displayName": "ListTitle",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "iconTitle": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "nav_bar_items": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::nav-bar-item.nav-bar-item"
+    }
+  }
+}

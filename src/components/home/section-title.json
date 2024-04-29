@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_home_section_titles",
+  "info": {
+    "displayName": "SectionTitle"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  }
+}

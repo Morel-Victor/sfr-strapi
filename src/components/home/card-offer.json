@@ -1,0 +1,66 @@
+{
+  "collectionName": "components_home_card_offers",
+  "info": {
+    "displayName": "CardOffer",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "img": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "scoring": {
+      "type": "decimal"
+    },
+    "opinions": {
+      "type": "integer"
+    },
+    "price": {
+      "type": "string"
+    },
+    "agreement": {
+      "type": "string"
+    },
+    "urlText": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "firstSubPriceText": {
+      "type": "string"
+    },
+    "secondSubPriceText": {
+      "type": "string"
+    },
+    "firstBadgeText": {
+      "type": "string"
+    },
+    "secondBadgeText": {
+      "type": "string"
+    },
+    "firstBadgeColor": {
+      "type": "string"
+    },
+    "secondBadgeColor": {
+      "type": "string"
+    },
+    "priceByMonth": {
+      "type": "boolean"
+    }
+  }
+}

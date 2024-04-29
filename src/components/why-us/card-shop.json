@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_why_us_card_shops",
+  "info": {
+    "displayName": "CardShop"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "text": {
+      "type": "text"
+    },
+    "img": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "urlText": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}

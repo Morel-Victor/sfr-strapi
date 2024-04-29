@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "carousel_containers",
+  "info": {
+    "singularName": "carousel-container",
+    "pluralName": "carousel-containers",
+    "displayName": "CarouselContainer"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "carousel_categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::carousel-category.carousel-category"
+    }
+  }
+}

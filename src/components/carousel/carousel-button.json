@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_carousel_carousel_buttons",
+  "info": {
+    "displayName": "CarouselButton"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}

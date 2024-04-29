@@ -1,0 +1,72 @@
+{
+  "kind": "collectionType",
+  "collectionName": "carousels",
+  "info": {
+    "singularName": "carousel",
+    "pluralName": "carousels",
+    "displayName": "CarouselSlide",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "img": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "price": {
+      "type": "string"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "carousel.carousel-button"
+    },
+    "priceText": {
+      "type": "component",
+      "repeatable": true,
+      "component": "carousel.carousel-price"
+    },
+    "condition": {
+      "type": "string"
+    },
+    "imgOffsetTop": {
+      "type": "integer"
+    },
+    "background": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "lightBackground": {
+      "type": "boolean"
+    },
+    "priceByMonth": {
+      "type": "boolean"
+    },
+    "badge": {
+      "type": "string"
+    }
+  }
+}
