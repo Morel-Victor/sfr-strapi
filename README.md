@@ -1,57 +1,20 @@
-# 🚀 Getting started with Strapi
+# SFR Project (part 1/2)
 
-Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/dev-docs/cli) (CLI) which lets you scaffold and manage your project in seconds.
+The SFR project is a clone of the website sfr.fr. My goal was to create a version as close as possible to the original site. The first step is to install Strapi for the back end. Then, the second step is to install the front end from this repository : 
+https://github.com/Morel-Victor/sfr-front
 
-### `develop`
+**Local version**
+![](https://i.ibb.co/pPzmtJF/sfr.png)
+#### Install of Strapi:
 
-Start your Strapi application with autoReload enabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-develop)
+Strapi is a powerful headless CMS for the backend with great features, such as the ability to inject the structure of a page into JSON. You can create new pages and move components around without writing a single line of code. 
 
-```
-npm run develop
-# or
-yarn develop
-```
+Unlike other CMS platforms, Strapi imposes no limitations because it focuses solely on the backend and data management.
 
-### `start`
-
-Start your Strapi application with autoReload disabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-start)
-
-```
-npm run start
-# or
-yarn start
-```
-
-### `build`
-
-Build your admin panel. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-build)
-
-```
-npm run build
-# or
-yarn build
-```
-
-## ⚙️ Deployment
-
-Strapi gives you many possible deployment options for your project including [Strapi Cloud](https://cloud.strapi.io). Browse the [deployment section of the documentation](https://docs.strapi.io/dev-docs/deployment) to find the best solution for your use case.
-
-## 📚 Learn more
-
-- [Resource center](https://strapi.io/resource-center) - Strapi resource center.
-- [Strapi documentation](https://docs.strapi.io) - Official Strapi documentation.
-- [Strapi tutorials](https://strapi.io/tutorials) - List of tutorials made by the core team and the community.
-- [Strapi blog](https://strapi.io/blog) - Official Strapi blog containing articles made by the Strapi team and the community.
-- [Changelog](https://strapi.io/changelog) - Find out about the Strapi product updates, new features and general improvements.
-
-Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/strapi). Your feedback and contributions are welcome!
-
-## ✨ Community
-
-- [Discord](https://discord.strapi.io) - Come chat with the Strapi community including the core team.
-- [Forum](https://forum.strapi.io/) - Place to discuss, ask questions and find answers, show your Strapi project and get feedback or just talk with other Community members.
-- [Awesome Strapi](https://github.com/strapi/awesome-strapi) - A curated list of awesome things related to Strapi.
-
----
-
-<sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
+- ```git pull origin main``` to have the strapi and the content types
+-  ```cd your-src-folder-path ```
+-  ```npm install ``` to install dependensies
+-  ```npm run strapi import -f export_20240911154813.tar.gz ```to have your datas
+(doc for import data https://docs.strapi.io/dev-docs/data-management/import)
+-  ```npm run develop ``` to lunch the strapi (use other version of npm and node if erros version used in project node 16)
+- create an user in localhost://1337 and your back end is ready
