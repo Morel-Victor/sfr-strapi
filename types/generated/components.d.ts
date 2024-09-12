@@ -1,23 +1,35 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
-export interface CarouselCarouselButton extends Schema.Component {
-  collectionName: 'components_carousel_carousel_buttons';
+export interface CarouselCarousel extends Schema.Component {
+  collectionName: 'components_carousel_carousels';
   info: {
-    displayName: 'CarouselButton';
+    displayName: 'Carousel';
   };
   attributes: {
-    name: Attribute.String;
-    url: Attribute.String;
+    Slide: Attribute.Component<'carousel.slide', true>;
   };
 }
 
-export interface CarouselCarouselPrice extends Schema.Component {
-  collectionName: 'components_carousel_carousel_prices';
+export interface CarouselSlide extends Schema.Component {
+  collectionName: 'components_carousel_slides';
   info: {
-    displayName: 'CarouselPrice';
+    displayName: 'Slide';
+    description: '';
   };
   attributes: {
-    text: Attribute.String;
+    title: Attribute.String;
+    subtitle: Attribute.String;
+    img: Attribute.Media;
+    background: Attribute.Media;
+    imgOffsetTop: Attribute.Integer;
+    price: Attribute.String;
+    lightBackground: Attribute.Boolean;
+    badge: Attribute.String;
+    condition: Attribute.String;
+    priceByMonth: Attribute.Boolean;
+    icon: Attribute.Media;
+    name: Attribute.String;
+    button: Attribute.String;
   };
 }
 
@@ -141,6 +153,16 @@ export interface HomeCard extends Schema.Component {
   };
   attributes: {
     card: Attribute.Component<'home.card-offer', true>;
+  };
+}
+
+export interface HomeHtml extends Schema.Component {
+  collectionName: 'components_home_htmls';
+  info: {
+    displayName: 'html';
+  };
+  attributes: {
+    text: Attribute.RichText;
   };
 }
 
@@ -285,21 +307,11 @@ export interface WhyUsShop extends Schema.Component {
   };
 }
 
-export interface WhyUsTest extends Schema.Component {
-  collectionName: 'components_why_us_tests';
-  info: {
-    displayName: 'test';
-  };
-  attributes: {
-    dd: Attribute.String;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
-      'carousel.carousel-button': CarouselCarouselButton;
-      'carousel.carousel-price': CarouselCarouselPrice;
+      'carousel.carousel': CarouselCarousel;
+      'carousel.slide': CarouselSlide;
       'footer.link': FooterLink;
       'footer.list': FooterList;
       'footer.underlink': FooterUnderlink;
@@ -309,6 +321,7 @@ declare module '@strapi/types' {
       'home.card-news': HomeCardNews;
       'home.card-offer': HomeCardOffer;
       'home.card': HomeCard;
+      'home.html': HomeHtml;
       'home.news': HomeNews;
       'home.section-title': HomeSectionTitle;
       'nav-bar.badges': NavBarBadges;
@@ -320,7 +333,6 @@ declare module '@strapi/types' {
       'why-us.main-title': WhyUsMainTitle;
       'why-us.section-title': WhyUsSectionTitle;
       'why-us.shop': WhyUsShop;
-      'why-us.test': WhyUsTest;
     }
   }
 }

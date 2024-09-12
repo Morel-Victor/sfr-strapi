@@ -362,6 +362,98 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
+export interface AdminWorkflow extends Schema.CollectionType {
+  collectionName: 'strapi_workflows';
+  info: {
+    name: 'Workflow';
+    description: '';
+    singularName: 'workflow';
+    pluralName: 'workflows';
+    displayName: 'Workflow';
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required & Attribute.Unique;
+    stages: Attribute.Relation<
+      'admin::workflow',
+      'oneToMany',
+      'admin::workflow-stage'
+    >;
+    contentTypes: Attribute.JSON & Attribute.Required & Attribute.DefaultTo<[]>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'admin::workflow',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'admin::workflow',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface AdminWorkflowStage extends Schema.CollectionType {
+  collectionName: 'strapi_workflows_stages';
+  info: {
+    name: 'Workflow Stage';
+    description: '';
+    singularName: 'workflow-stage';
+    pluralName: 'workflow-stages';
+    displayName: 'Stages';
+  };
+  options: {
+    version: '1.1.0';
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    name: Attribute.String;
+    color: Attribute.String & Attribute.DefaultTo<'#4945FF'>;
+    workflow: Attribute.Relation<
+      'admin::workflow-stage',
+      'manyToOne',
+      'admin::workflow'
+    >;
+    permissions: Attribute.Relation<
+      'admin::workflow-stage',
+      'manyToMany',
+      'admin::permission'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'admin::workflow-stage',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'admin::workflow-stage',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -785,121 +877,16 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'admin::user'
     > &
       Attribute.Private;
-  };
-}
-
-export interface ApiCarouselCarousel extends Schema.CollectionType {
-  collectionName: 'carousels';
-  info: {
-    singularName: 'carousel';
-    pluralName: 'carousels';
-    displayName: 'CarouselSlide';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    title: Attribute.String;
-    subtitle: Attribute.String;
-    img: Attribute.Media;
-    price: Attribute.String;
-    button: Attribute.Component<'carousel.carousel-button'>;
-    priceText: Attribute.Component<'carousel.carousel-price', true>;
-    condition: Attribute.String;
-    imgOffsetTop: Attribute.Integer;
-    background: Attribute.Media;
-    lightBackground: Attribute.Boolean;
-    priceByMonth: Attribute.Boolean;
-    badge: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::carousel.carousel',
+    strapi_stage: Attribute.Relation<
+      'plugin::users-permissions.user',
       'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::carousel.carousel',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiCarouselCategoryCarouselCategory
-  extends Schema.CollectionType {
-  collectionName: 'carousel_categories';
-  info: {
-    singularName: 'carousel-category';
-    pluralName: 'carousel-categories';
-    displayName: 'CarouselCategory';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    icon: Attribute.Media;
-    name: Attribute.String;
-    slide: Attribute.Relation<
-      'api::carousel-category.carousel-category',
-      'oneToOne',
-      'api::carousel.carousel'
+      'admin::workflow-stage'
     >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::carousel-category.carousel-category',
+    strapi_assignee: Attribute.Relation<
+      'plugin::users-permissions.user',
       'oneToOne',
       'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::carousel-category.carousel-category',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiCarouselContainerCarouselContainer
-  extends Schema.CollectionType {
-  collectionName: 'carousel_containers';
-  info: {
-    singularName: 'carousel-container';
-    pluralName: 'carousel-containers';
-    displayName: 'CarouselContainer';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    carousel_categories: Attribute.Relation<
-      'api::carousel-container.carousel-container',
-      'oneToMany',
-      'api::carousel-category.carousel-category'
     >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::carousel-container.carousel-container',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::carousel-container.carousel-container',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
   };
 }
 
@@ -931,31 +918,16 @@ export interface ApiFooterFooter extends Schema.CollectionType {
       'admin::user'
     > &
       Attribute.Private;
-  };
-}
-
-export interface ApiHomeHome extends Schema.CollectionType {
-  collectionName: 'homes';
-  info: {
-    singularName: 'home';
-    pluralName: 'homes';
-    displayName: 'Home';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    home: Attribute.DynamicZone<
-      ['home.section-title', 'home.best-for-you', 'home.news', 'home.card']
+    strapi_stage: Attribute.Relation<
+      'api::footer.footer',
+      'oneToOne',
+      'admin::workflow-stage'
     >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::home.home', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::home.home', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
+    strapi_assignee: Attribute.Relation<
+      'api::footer.footer',
+      'oneToOne',
+      'admin::user'
+    >;
   };
 }
 
@@ -987,6 +959,16 @@ export interface ApiNavBarNavBar extends Schema.CollectionType {
       'admin::user'
     > &
       Attribute.Private;
+    strapi_stage: Attribute.Relation<
+      'api::nav-bar.nav-bar',
+      'oneToOne',
+      'admin::workflow-stage'
+    >;
+    strapi_assignee: Attribute.Relation<
+      'api::nav-bar.nav-bar',
+      'oneToOne',
+      'admin::user'
+    >;
   };
 }
 
@@ -1021,6 +1003,16 @@ export interface ApiNavBarItemNavBarItem extends Schema.CollectionType {
       'admin::user'
     > &
       Attribute.Private;
+    strapi_stage: Attribute.Relation<
+      'api::nav-bar-item.nav-bar-item',
+      'oneToOne',
+      'admin::workflow-stage'
+    >;
+    strapi_assignee: Attribute.Relation<
+      'api::nav-bar-item.nav-bar-item',
+      'oneToOne',
+      'admin::user'
+    >;
   };
 }
 
@@ -1059,40 +1051,101 @@ export interface ApiNavBarListNavBarList extends Schema.CollectionType {
       'admin::user'
     > &
       Attribute.Private;
+    strapi_stage: Attribute.Relation<
+      'api::nav-bar-list.nav-bar-list',
+      'oneToOne',
+      'admin::workflow-stage'
+    >;
+    strapi_assignee: Attribute.Relation<
+      'api::nav-bar-list.nav-bar-list',
+      'oneToOne',
+      'admin::user'
+    >;
   };
 }
 
-export interface ApiWhyUsWhyUs extends Schema.CollectionType {
-  collectionName: 'why_uses';
+export interface ApiPagePage extends Schema.CollectionType {
+  collectionName: 'pages';
   info: {
-    singularName: 'why-us';
-    pluralName: 'why-uses';
-    displayName: 'WhyUs';
+    singularName: 'page';
+    pluralName: 'pages';
+    displayName: 'Pages';
     description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    WhyUs: Attribute.DynamicZone<
+    name: Attribute.String;
+    url: Attribute.String;
+    composants: Attribute.DynamicZone<
       [
+        'home.card',
+        'home.news',
+        'home.section-title',
+        'home.best-for-you',
+        'why-us.high-speed',
         'why-us.main-title',
         'why-us.section-title',
         'why-us.shop',
-        'why-us.high-speed'
+        'home.html',
+        'carousel.carousel'
       ]
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::page.page', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::page.page', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    strapi_stage: Attribute.Relation<
+      'api::page.page',
+      'oneToOne',
+      'admin::workflow-stage'
+    >;
+    strapi_assignee: Attribute.Relation<
+      'api::page.page',
+      'oneToOne',
+      'admin::user'
+    >;
+  };
+}
+
+export interface AdminAuditLog extends Schema.CollectionType {
+  collectionName: 'strapi_audit_logs';
+  info: {
+    singularName: 'audit-log';
+    pluralName: 'audit-logs';
+    displayName: 'Audit Log';
+  };
+  options: {
+    draftAndPublish: false;
+    timestamps: false;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    action: Attribute.String & Attribute.Required;
+    date: Attribute.DateTime & Attribute.Required;
+    user: Attribute.Relation<'admin::audit-log', 'oneToOne', 'admin::user'>;
+    payload: Attribute.JSON;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::why-us.why-us',
+      'admin::audit-log',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::why-us.why-us',
+      'admin::audit-log',
       'oneToOne',
       'admin::user'
     > &
@@ -1110,6 +1163,8 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
+      'admin::workflow': AdminWorkflow;
+      'admin::workflow-stage': AdminWorkflowStage;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
@@ -1118,15 +1173,12 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
-      'api::carousel.carousel': ApiCarouselCarousel;
-      'api::carousel-category.carousel-category': ApiCarouselCategoryCarouselCategory;
-      'api::carousel-container.carousel-container': ApiCarouselContainerCarouselContainer;
       'api::footer.footer': ApiFooterFooter;
-      'api::home.home': ApiHomeHome;
       'api::nav-bar.nav-bar': ApiNavBarNavBar;
       'api::nav-bar-item.nav-bar-item': ApiNavBarItemNavBarItem;
       'api::nav-bar-list.nav-bar-list': ApiNavBarListNavBarList;
-      'api::why-us.why-us': ApiWhyUsWhyUs;
+      'api::page.page': ApiPagePage;
+      'admin::audit-log': AdminAuditLog;
     }
   }
 }

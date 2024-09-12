@@ -1,0 +1,73 @@
+{
+  "collectionName": "components_carousel_slides",
+  "info": {
+    "displayName": "Slide",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "img": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "background": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "imgOffsetTop": {
+      "type": "integer"
+    },
+    "price": {
+      "type": "string"
+    },
+    "lightBackground": {
+      "type": "boolean"
+    },
+    "badge": {
+      "type": "string"
+    },
+    "condition": {
+      "type": "string"
+    },
+    "priceByMonth": {
+      "type": "boolean"
+    },
+    "icon": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "name": {
+      "type": "string"
+    },
+    "button": {
+      "type": "string"
+    }
+  }
+}

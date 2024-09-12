@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_home_htmls",
+  "info": {
+    "displayName": "html"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "richtext"
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pages",
+  "info": {
+    "singularName": "page",
+    "pluralName": "pages",
+    "displayName": "Pages",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "composants": {
+      "type": "dynamiczone",
+      "components": [
+        "home.card",
+        "home.news",
+        "home.section-title",
+        "home.best-for-you",
+        "why-us.high-speed",
+        "why-us.main-title",
+        "why-us.section-title",
+        "why-us.shop",
+        "home.html",
+        "carousel.carousel"
+      ]
+    }
+  }
+}
